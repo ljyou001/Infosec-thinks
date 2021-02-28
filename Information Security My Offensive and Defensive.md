@@ -58,7 +58,7 @@ CDN, originally designed to speed up the network speed for ICPs. However, it is 
 
 Some providers provides fare price CDN or even free. While under attack, you could even ask for a attack mode and let the CDN help you check whether someone is a client or attacker.
 
-![photo](.\images\photo.png)
+![photo](./images/photo.png)
 
 The image is an example for one of my website. Unless certain services requires a full exposure, all services should stay behind the CDN.
 
@@ -108,7 +108,7 @@ International domain registrants nowadays will provides Whoisguard for free, whi
 
 Similarly, Maltego, a information collection software, combined command above and user made addons, can be used for all direction of information gathering. By drag-n-drop and right-click, a website with its personnel, machine, subdomains, DNS and all you could think can be obtained from resources that can be public access. Security engineer should use this software and apply ideas that I mentioned above in the head to protect IT system from cracking.
 
- ![02-_maltego-domain-person.jpg](.\images\02-_maltego-domain-person.jpg.webp)
+ ![02-_maltego-domain-person.jpg](./images/02-_maltego-domain-person.jpg.webp)
 
 
 
@@ -156,6 +156,11 @@ Network layer is mainly about the IP and ICMP related. Major tools includes `pin
 
 Users normally will not block `ping` but they can block `traceroute` access by themselves.
 
+```shell
+ping www.google.com
+traceroute www.google.com
+```
+
 
 
 Also, `hping3` is an another tools that could be used for a small DOS attack or pressure test.
@@ -171,6 +176,10 @@ hping3 -c 1000 -d 120 -S -w 64 -p 80 --flood --rand-source example.com
 #### Transport & Application Layer information Scanning
 
 Transport layer in TCP/IP represents the transport method TCP/UDP while transferring data, and application layer represents the port, program and transforming real application related data.
+
+
+
+##### NMAP & MSFconsole
 
 Normally, we use `nmap` and `msfconsole` to scan in order to know the stack of an application, which is critical for web and client offensive. Those software may have vulnerabilities that have not been fixed, which is the most juicy thing for attackers that intend to offense the target.
 
@@ -191,7 +200,17 @@ nmap -sS nctu.edu.tw # only send SYN/ACK message and wait for target's RST/ACK
 
 
 
-#### Cross Layer Scanning Tool
+##### Free Tools Online: Shodan
+
+Meanwhile, if you already know the host is running on the public network, using `shodan.io` is also a good way to discover the vulnerabilities. You can use its search box to define the product/city/version/... you want, and then it will return a really detailed stack and vulnerability report.
+
+![jw2tU11VRy](./images/jw2tU11VRy.png)
+
+By knowing all these things, attacker could use MSF and other open source script to penetrate the host. As developer, we should also make good use of these tools as they can clearly show us what is vulnerable part in our systems.
+
+
+
+##### Free Tools On-site: Nessus
 
 Here, I would like to introduce a software called `Nessus`, a vulnerability detection software that can be publicly downloaded.
 
@@ -201,13 +220,19 @@ The scanning takes a lot of time, but it will give you a very detailed overall v
 
 
 
+#### After All These Techniques
+
+
+
 
 
 ## Password Engineering
 
 ### Hashcat
 
-### Storage Password Safely
+### Encryption: Storage Password Safely
+
+### Johnny v.s. shadow File
 
 ### Wifi Password Hacking
 
@@ -225,7 +250,7 @@ The scanning takes a lot of time, but it will give you a very detailed overall v
 
 ### CSRF Attack
 
-### Uses of Robot.txt
+### BurpSuite
 
 ### X-Forward and other Header attacks
 
@@ -279,7 +304,7 @@ use auxiliary/scanner/smb/smb_ms17_010
 
 By using `show options` command, you will see a series of settings waiting for your setup.
 
-![KU72naCoxZ](.\images\KU72naCoxZ.png)
+![KU72naCoxZ](./images/KU72naCoxZ.png)
 
 Some you can simply keep default, but required ones you must set them up. For example, RHOST, the attacking targets and RPORT.
 
